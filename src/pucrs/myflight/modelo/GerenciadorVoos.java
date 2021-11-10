@@ -3,8 +3,6 @@ package pucrs.myflight.modelo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class GerenciadorVoos {
     private ArrayList<Voo> voos;
