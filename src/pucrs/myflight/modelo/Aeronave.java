@@ -17,4 +17,3 @@ public class Aeronave {
 		return descricao;
 	}
 }
-//SALVE
