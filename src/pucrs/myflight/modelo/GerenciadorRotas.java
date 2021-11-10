@@ -20,7 +20,7 @@ public class GerenciadorRotas {
     public ArrayList<Rota> buscarPorOrigem(Aeroporto orig){
         ArrayList<Rota> aux = new ArrayList<>();
         for(Rota rota : rotas){
-            if(rota.getOrigem().equals(orig)){
+            if(rota.getOrigem().getCodigo().equals(orig.getCodigo())){
                 aux.add(rota);
             }
         }
