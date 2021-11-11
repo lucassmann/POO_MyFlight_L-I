@@ -52,7 +52,7 @@ public class GerenciadorCias {
 		return null;
 	} 	
 
-	public void carregaDados(String nomedoarquivo) throws IOException {
+	public static void carregaDados(String nomedoarquivo) throws IOException {
 		
 		Path pathCias = Paths.get(nomedoarquivo);
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
