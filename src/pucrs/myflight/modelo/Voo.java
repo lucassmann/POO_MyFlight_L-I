@@ -46,6 +46,6 @@ public class Voo {
 	}
 
 	public String toString() {
-		return status + " " + datahora + "("+duracao+"): " + rota + status;
+		return this.status + " " + this.datahora + "("+this.duracao+"): " + this.rota;
 	}
 }
