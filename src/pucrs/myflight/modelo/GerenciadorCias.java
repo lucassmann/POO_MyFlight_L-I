@@ -1,6 +1,16 @@
 package pucrs.myflight.modelo;
 
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import pucrs.myflight.modelo.Geo;
+import java.nio.charset.Charset;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> empresas;
@@ -41,4 +51,23 @@ public class GerenciadorCias {
 		}
 		return null;
 	} 	
+
+	public void carregaDados(String nomedoarquivo) throws IOException {
+		
+		Path pathCias = Paths.get(nomedoarquivo);
+		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
+		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
+		String header = sc.nextLine(); // pula cabeçalho
+		String airlineid, airlinename, pal;
+		while (sc.hasNext()) {
+			airlineid = sc.next();
+			airlinename = sc.next();
+			System.out.format("%s - %s (%s)%n", airlineid, airlinename);
+		}
+		}
+		catch (IOException x) {
+		System.err.format("Erro de E/S: %s%n", x);
+		}
+
+	}
 }
