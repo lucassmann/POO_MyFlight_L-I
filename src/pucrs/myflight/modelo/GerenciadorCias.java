@@ -62,7 +62,7 @@ public class GerenciadorCias {
 		while (sc.hasNext()) {
 			airlineid = sc.next();
 			airlinename = sc.next();
-			System.out.format("%s - %s (%s)%n", airlineid, airlinename);
+			System.out.println(airlineid+ airlinename);
 		}
 		}
 		catch (IOException x) {
