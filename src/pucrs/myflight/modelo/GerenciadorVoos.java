@@ -15,6 +15,10 @@ public class GerenciadorVoos {
         voos.add(voo);
     }
 
+    public void remover(Voo voo){
+        voos.remove(voo);
+    }
+
     public ArrayList<Voo> listarTodos(){
         return this.voos;
     }

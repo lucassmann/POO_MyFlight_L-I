@@ -14,6 +14,10 @@ public class GerenciadorAeroportos {
         aeroportos.add(aero);
     }
 
+    public void remover(Aeroporto aero){
+        aeroportos.remove(aero);
+    }
+
     public ArrayList<Aeroporto> listarTodos(){
         return this.aeroportos;
     }
