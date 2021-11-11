@@ -31,7 +31,6 @@ public class Rota implements Comparable<Rota>{
 
 	@Override
 	public int compareTo(Rota o) {
-		// TODO Auto-generated method stub
 		return this.getCia().getNome().compareTo(o.getCia().getNome());
 	}
 

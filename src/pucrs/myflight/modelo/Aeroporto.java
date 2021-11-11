@@ -25,7 +25,6 @@ public class Aeroporto implements Comparable<Aeroporto>{
 
 	@Override
 	public int compareTo(Aeroporto o) {
-		// TODO Auto-generated method stub
 		return this.getNome().compareTo(o.getNome());
 	}
 }
