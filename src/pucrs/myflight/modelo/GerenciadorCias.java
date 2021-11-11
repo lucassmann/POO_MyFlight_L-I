@@ -13,6 +13,10 @@ public class GerenciadorCias {
 		empresas.add(cia);
 	}
 
+	public void remover(CiaAerea cia){
+		empresas.remove(cia);
+	}
+
 	public ArrayList<CiaAerea> listarTodas(){
 		return this.empresas;
 	} 

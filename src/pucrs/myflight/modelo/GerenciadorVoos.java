@@ -1,7 +1,6 @@
 package pucrs.myflight.modelo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class GerenciadorVoos {
@@ -13,6 +12,10 @@ public class GerenciadorVoos {
 
     public void adicionar(Voo voo){
         voos.add(voo);
+    }
+
+    public void remover(Voo voo){
+        voos.remove(voo);
     }
 
     public ArrayList<Voo> listarTodos(){

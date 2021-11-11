@@ -14,6 +14,10 @@ public class GerenciadorRotas {
         rotas.add(rota);
     }
 
+    public void remover(Rota rota){
+        rotas.remove(rota);
+    }
+
     public ArrayList<Rota> listarTodas(){
         return this.rotas;
     }

@@ -1,5 +1,4 @@
 package pucrs.myflight.modelo;
-import static java.lang.Math.*;
 
 public class Geo {
 	private double latitude;
