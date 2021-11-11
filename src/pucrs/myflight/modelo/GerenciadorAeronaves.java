@@ -13,6 +13,10 @@ public class GerenciadorAeronaves {
         aeronaves.add(aviao);
     }
 
+    public void remover(Aeronave aviao){
+        aeronaves.remove(aviao);
+    }
+
     public ArrayList<Aeronave> listarTodas(){
         return this.aeronaves;
     }
