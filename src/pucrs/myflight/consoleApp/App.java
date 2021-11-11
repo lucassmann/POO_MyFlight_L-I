@@ -11,6 +11,6 @@ public class App {
 		System.out.println("\nMyFlight project...");
 
 
-		GerenciadorCias.carregaDados("airlines.dat");
+		GerenciadorCias.carregaDados("modelo\airlines.dat");
 	}
 }
