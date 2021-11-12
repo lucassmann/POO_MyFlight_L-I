@@ -1,16 +1,9 @@
 package pucrs.myflight.consoleApp;
 
-import java.io.IOException;
-
-import pucrs.myflight.modelo.Geo;
-import pucrs.myflight.modelo.GerenciadorCias;
-
 public class App {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		System.out.println("\nMyFlight project...");
 
-
-		GerenciadorCias.carregaDados("src/pucrs/myflight/modelo/airlines.dat");
 	}
 }
