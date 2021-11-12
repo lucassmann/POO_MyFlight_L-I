@@ -1,6 +1,7 @@
 package pucrs.myflight.modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -12,8 +13,9 @@ import java.util.Scanner;
 public class GerenciadorRotas {
     private ArrayList<Rota> rotas;
 
-    public GerenciadorRotas(){
+    public GerenciadorRotas() throws IOException{
         rotas = new ArrayList<>();
+        this.carregaDados();
     }
 
     public void adicionar(Rota rota){
@@ -42,9 +44,11 @@ public class GerenciadorRotas {
         Collections.sort(rotas);
     }
 
-    public void carregaDados(String nomedoarquivo) throws IOException {
-		
-		Path pathCias = Paths.get(nomedoarquivo);
+    public void carregaDados() throws IOException {
+		GerenciadorAeronaves gerAeronaves = new GerenciadorAeronaves();
+        GerenciadorAeroportos gerAeroportos = new GerenciadorAeroportos();
+        GerenciadorCias gerCias = new GerenciadorCias();
+		Path pathCias = Paths.get("src/pucrs/myflight/modelo/routes.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
@@ -58,6 +62,23 @@ public class GerenciadorRotas {
             equipment = sc.next();
             if(equipment.contains(" ")){
                 String[] listaAvioes = equipment.split(" ");
+                for (int i = 0; i >= Arrays.asList(listaAvioes).size(); i++){
+                    CiaAerea ciaAux = gerCias.buscarCodigo(airline);
+                    Aeroporto aeroportoFromAux = gerAeroportos.buscarPorCodigo(from);
+                    Aeroporto aeroportoToAux = gerAeroportos.buscarPorCodigo(to);
+                    Aeronave aeronaveAux = gerAeronaves.buscarPorCodigo(listaAvioes[i]);
+                    Rota rotaAux = new Rota(ciaAux, aeroportoFromAux, aeroportoToAux, aeronaveAux);
+                    this.rotas.add(rotaAux);
+
+                }
+            }
+            else{
+                CiaAerea ciaAux = gerCias.buscarCodigo(airline);
+                Aeroporto aeroportoFromAux = gerAeroportos.buscarPorCodigo(from);
+                Aeroporto aeroportoToAux = gerAeroportos.buscarPorCodigo(to);
+                Aeronave aeronaveAux = gerAeronaves.buscarPorCodigo(equipment);
+                Rota rotaAux = new Rota(ciaAux, aeroportoFromAux, aeroportoToAux, aeronaveAux);
+                this.rotas.add(rotaAux);
             }
 		}
 		}
