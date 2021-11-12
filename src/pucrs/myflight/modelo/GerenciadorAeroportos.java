@@ -48,13 +48,15 @@ public class GerenciadorAeroportos {
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
-		String iatacode, airportname;
+		String iatacode, airportname, pais;
 		while (sc.hasNext()) {
 			iatacode = sc.next();
 			Double latitude = Double.parseDouble(sc.next());
             Double longitude = Double.parseDouble(sc.next());
             airportname = sc.next();
-			Aeroporto aeroporto = new Aeroporto()
+            pais = sc.next();
+            Geo geo = new Geo(latitude, longitude);
+			Aeroporto aeroporto = new Aeroporto(iatacode, airportname, geo);
 		}
 		}
 		catch (IOException x) {
