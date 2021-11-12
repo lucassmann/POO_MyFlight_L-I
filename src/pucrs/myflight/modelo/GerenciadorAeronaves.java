@@ -36,7 +36,7 @@ public class GerenciadorAeronaves {
         return null;
     }
 
-    public static void carregaDados(String nomedoarquivo) throws IOException {
+    public void carregaDados(String nomedoarquivo) throws IOException {
 		
 		Path pathCias = Paths.get(nomedoarquivo);
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
@@ -47,7 +47,8 @@ public class GerenciadorAeronaves {
 			equipmentid = sc.next();
             description = sc.next();
             capacity = sc.next();
-			System.out.println(equipmentid+ description+ capacity);
+            Aeronave aero = new Aeronave(equipmentid, description);
+            aeronaves.add(aero);
 		}
 		}
 		catch (IOException x) {
