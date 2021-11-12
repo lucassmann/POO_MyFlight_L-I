@@ -25,7 +25,7 @@ public class App {
 		LocalDateTime datahora = LocalDateTime.of(2016, 8, 12, 12, 0, 0);
 		Duration duracao = Duration.ofHours(1);
 		VooDireto voodir = new VooDireto(gerRotas.listarTodas().get(1), datahora, duracao);
-		System.out.println(voodir.getDatahora()); //FUNCIONA!!!!!!!!  \o/
+		System.out.println(voodir.getRota().getCia().getNome()); //FUNCIONA!!!!!!!!  \o/
 		
 	}
 }
