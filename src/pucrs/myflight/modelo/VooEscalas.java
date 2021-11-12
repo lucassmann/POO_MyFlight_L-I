@@ -5,18 +5,28 @@ import java.time.LocalDateTime;
 
 public class VooEscalas extends Voo
 {
+    private Duration duracao;
+    private Rota rota;
     private Rota rotaFinal;
 
     // Construtor
     public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime datahora, Duration duracao) {
-        super(rota, datahora, duracao); // chama o construtor de Voo
+        super(datahora); // chama o construtor de Voo
+        this.rota = rota;
+        this.duracao = duracao;
         this.rotaFinal = rotaFinal;
      }
 
-    public Rota getRotaFinal() { return rotaFinal; }
-
     @Override
     public String toString() {
-       return super.toString() + " -> " + rotaFinal;
+       return super.getStatus() + " " + super.getDatahora() + "("+this.duracao+"): " + this.rota + " -> " + rotaFinal;
+    }
+
+    @Override
+    public Rota getRota() { return rotaFinal; }
+
+    @Override
+    public Duration getDuracao() {
+        return this.duracao;
     }
 }
