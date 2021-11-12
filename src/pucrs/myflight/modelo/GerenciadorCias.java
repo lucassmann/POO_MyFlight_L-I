@@ -49,7 +49,7 @@ public class GerenciadorCias {
 		return null;
 	} 	
 
-	public static void carregaDados(String nomedoarquivo) throws IOException {
+	public void carregaDados(String nomedoarquivo) throws IOException {
 		
 		Path pathCias = Paths.get(nomedoarquivo);
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
@@ -59,7 +59,8 @@ public class GerenciadorCias {
 		while (sc.hasNext()) {
 			airlineid = sc.next();
 			airlinename = sc.next();
-			System.out.println(airlineid+ airlinename);
+			CiaAerea cia = new CiaAerea(airlineid, airlinename);
+			empresas.add(cia);
 		}
 		}
 		catch (IOException x) {
