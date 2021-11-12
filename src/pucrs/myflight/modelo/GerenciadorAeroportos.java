@@ -54,7 +54,7 @@ public class GerenciadorAeroportos {
 			Double latitude = Double.parseDouble(sc.next());
             Double longitude = Double.parseDouble(sc.next());
             airportname = sc.next();
-			System.out.println(iatacode+ latitude+ longitude+ airportname);
+			Aeroporto aeroporto = new Aeroporto()
 		}
 		}
 		catch (IOException x) {
