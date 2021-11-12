@@ -3,10 +3,7 @@ package pucrs.myflight.modelo;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.nio.file.Files;
-import java.io.PrintWriter;
-import java.io.BufferedReader;
 import java.io.IOException;
-import pucrs.myflight.modelo.Geo;
 import java.nio.charset.Charset;
 
 import java.util.ArrayList;
@@ -58,7 +55,7 @@ public class GerenciadorCias {
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
-		String airlineid, airlinename, pal;
+		String airlineid, airlinename;
 		while (sc.hasNext()) {
 			airlineid = sc.next();
 			airlinename = sc.next();
