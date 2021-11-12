@@ -42,7 +42,7 @@ public class GerenciadorAeroportos {
         Collections.sort(aeroportos);
     }
 
-    public static void carregaDados(String nomedoarquivo) throws IOException {
+    public void carregaDados(String nomedoarquivo) throws IOException {
 		
 		Path pathCias = Paths.get(nomedoarquivo);
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
@@ -57,6 +57,7 @@ public class GerenciadorAeroportos {
             pais = sc.next();
             Geo geo = new Geo(latitude, longitude);
 			Aeroporto aeroporto = new Aeroporto(iatacode, airportname, geo);
+            aeroportos.add(aeroporto);
 		}
 		}
 		catch (IOException x) {
