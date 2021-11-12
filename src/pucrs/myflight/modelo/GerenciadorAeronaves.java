@@ -1,6 +1,12 @@
 package pucrs.myflight.modelo;
 
 import java.util.ArrayList;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.Scanner;
 
 public class GerenciadorAeronaves {
     private ArrayList<Aeronave> aeronaves;
@@ -29,4 +35,24 @@ public class GerenciadorAeronaves {
         }
         return null;
     }
+
+    public static void carregaDados(String nomedoarquivo) throws IOException {
+		
+		Path pathCias = Paths.get(nomedoarquivo);
+		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
+		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
+		String header = sc.nextLine(); // pula cabeçalho
+		String equipmentid, description, capacity;
+		while (sc.hasNext()) {
+			equipmentid = sc.next();
+            description = sc.next();
+            capacity = sc.next();
+			System.out.println(equipmentid+ description+ capacity);
+		}
+		}
+		catch (IOException x) {
+		System.err.format("Erro de E/S: %s%n", x);
+		}
+
+	}
 }
