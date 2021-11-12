@@ -39,7 +39,7 @@ public class GerenciadorAeronaves {
 
     public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get("src/pucrs/myflight/modelo/equipment.dat");
+		Path pathCias = Paths.get("src/pucrs/myflight/data/equipment.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho

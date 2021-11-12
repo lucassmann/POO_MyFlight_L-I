@@ -48,7 +48,7 @@ public class GerenciadorRotas {
 		GerenciadorAeronaves gerAeronaves = new GerenciadorAeronaves();
         GerenciadorAeroportos gerAeroportos = new GerenciadorAeroportos();
         GerenciadorCias gerCias = new GerenciadorCias();
-		Path pathCias = Paths.get("src/pucrs/myflight/modelo/routes.dat");
+		Path pathCias = Paths.get("src/pucrs/myflight/data/routes.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho

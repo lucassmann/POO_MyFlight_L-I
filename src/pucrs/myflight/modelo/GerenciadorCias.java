@@ -52,7 +52,7 @@ public class GerenciadorCias {
 
 	public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get("src/pucrs/myflight/modelo/airlines.dat");
+		Path pathCias = Paths.get("src/pucrs/myflight/data/airlines.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho

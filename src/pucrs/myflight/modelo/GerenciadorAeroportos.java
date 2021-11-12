@@ -45,7 +45,7 @@ public class GerenciadorAeroportos {
 
     public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get("src/pucrs/myflight/modelo/airports.dat");
+		Path pathCias = Paths.get("src/pucrs/myflight/data/airports.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
