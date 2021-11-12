@@ -12,8 +12,9 @@ import java.util.Scanner;
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> empresas;
 	
-	public GerenciadorCias() {
+	public GerenciadorCias() throws IOException {
 		empresas = new ArrayList<>();
+		this.carregaDados();
 	}
 
 	public void adicionar(CiaAerea cia){
@@ -49,13 +50,15 @@ public class GerenciadorCias {
 		return null;
 	} 	
 
-	public void carregaDados(String nomedoarquivo) throws IOException {
+	public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get(nomedoarquivo);
+		Path pathCias = Paths.get("src/pucrs/myflight/modelo/airlines.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
 		String airlineid, airlinename;
+		GerenciadorAeronaves gerAero = new GerenciadorAeronaves();
+		gerAero.carregaDados();
 		while (sc.hasNext()) {
 			airlineid = sc.next();
 			airlinename = sc.next();

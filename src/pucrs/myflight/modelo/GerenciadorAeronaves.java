@@ -11,8 +11,9 @@ import java.util.Scanner;
 public class GerenciadorAeronaves {
     private ArrayList<Aeronave> aeronaves;
 
-    public GerenciadorAeronaves(){
-        aeronaves = new ArrayList<>();   
+    public GerenciadorAeronaves() throws IOException{
+        aeronaves = new ArrayList<>();
+        this.carregaDados();
     }
 
     public void adicionar(Aeronave aviao){
@@ -36,9 +37,9 @@ public class GerenciadorAeronaves {
         return null;
     }
 
-    public void carregaDados(String nomedoarquivo) throws IOException {
+    public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get(nomedoarquivo);
+		Path pathCias = Paths.get("src/pucrs/myflight/modelo/equipment.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho

@@ -13,8 +13,9 @@ import java.util.Collections;
 public class GerenciadorAeroportos {
     private ArrayList<Aeroporto> aeroportos;
 
-    public GerenciadorAeroportos(){
+    public GerenciadorAeroportos() throws IOException{
         aeroportos = new ArrayList<>();
+        this.carregaDados();
     }
 
     public void adicionar(Aeroporto aero){
@@ -42,9 +43,9 @@ public class GerenciadorAeroportos {
         Collections.sort(aeroportos);
     }
 
-    public void carregaDados(String nomedoarquivo) throws IOException {
+    public void carregaDados() throws IOException {
 		
-		Path pathCias = Paths.get(nomedoarquivo);
+		Path pathCias = Paths.get("src/pucrs/myflight/modelo/airports.dat");
 		try (Scanner sc = new Scanner(Files.newBufferedReader(pathCias, Charset.forName("utf8")))) {
 		sc.useDelimiter("[;\n]"); // separadores: ; e nova linha
 		String header = sc.nextLine(); // pula cabeçalho
